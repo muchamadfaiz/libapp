@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "libapp"
+version = "0.1.0"
+description = "library apps"
+authors = ["Muchamad Faiz <109614025+muchamadfaiz@users.noreply.github.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+Django = "^4.1.7"
+django-restframework = "^0.0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
