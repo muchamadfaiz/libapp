@@ -1,15 +1,13 @@
 from django.contrib import admin
-from .models import AuthorModel, CategoryModel, BookModel
-# Register your models here.
+from . import models
 
-class Author(admin.ModelAdmin):
-    pass
-class Category(admin.ModelAdmin):
-    pass
-class Book(admin.ModelAdmin):
-    pass
+class BookAdmin(admin.ModelAdmin):
+    list_display =  ['title', 'category', 'author', 'quantity']
+    list_editable = ['author']
+    list_per_page = 10
+    ordering = ['-title', '-category']
 
-admin.site.register(AuthorModel, Author)
-admin.site.register(CategoryModel, Category)
-admin.site.register(BookModel, Book)
+admin.site.register(models.Author)
+admin.site.register(models.Book, BookAdmin)
+admin.site.register(models.Category)
 
