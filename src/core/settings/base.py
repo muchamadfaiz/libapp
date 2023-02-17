@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     #third-party
 
     #installed apps
-
+    "apps.library",
     
 ]
 
