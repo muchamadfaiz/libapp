@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404
 from django.http import HttpResponse
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -10,13 +10,12 @@ from .serializers import BookSerializer
 
 @api_view()
 def book_list(request):
-    return Response("ok")
+    queryset = Book.objects.all()
+    serializer = BookSerializer(queryset, many=True)
+    return Response(serializer.data)
 
 @api_view()
 def book_detail(request, id):
-    try:
-        book = Book.objects.get(pk=id)
-        serializer = BookSerializer(book)
-        return Response(serializer.data)
-    except Book.DoesNotExist:
-        return Response(status=status.HTTP_404_NOT_FOUND)
+    book = get_object_or_404(Book,pk=id)
+    serializer = BookSerializer(book)
+    return Response(serializer.data)
