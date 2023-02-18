@@ -1,21 +1,16 @@
-from django.shortcuts import get_object_or_404
-from django.http import HttpResponse
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
-from rest_framework import status
-from .models import Book
-from .serializers import BookSerializer
+from rest_framework.viewsets import ModelViewSet
+from .models import Book, Author, Category
+from .serializers import BookSerializer, CategorySerializer, AuthorSerializer
 
 # Create your views here.
+class BookViewSet(ModelViewSet):
+    queryset =Book.objects.all()
+    serializer_class = BookSerializer
 
-@api_view()
-def book_list(request):
-    queryset = Book.objects.all()
-    serializer = BookSerializer(queryset, many=True)
-    return Response(serializer.data)
+class AuthorViewSet(ModelViewSet):
+    queryset =Author.objects.all()
+    serializer_class = AuthorSerializer
 
-@api_view()
-def book_detail(request, id):
-    book = get_object_or_404(Book,pk=id)
-    serializer = BookSerializer(book)
-    return Response(serializer.data)
+class CategoryViewSet(ModelViewSet):
+    queryset =Category.objects.all()
+    serializer_class = CategorySerializer
