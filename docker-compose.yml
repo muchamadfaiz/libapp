@@ -1,0 +1,38 @@
+version: "3.9"
+
+services:
+  db:
+    container_name: "lib-db"
+    image: postgres:15
+    env_file:
+      - ./.env
+    ports:
+      - ${DB_PORT}:${DB_PORT}
+    volumes:
+    - data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PWD}
+      - POSTGRES_DB=${DB_NAME}
+    networks:
+      - lib-network
+  web:
+    container_name: "lib-web"
+    build: .
+    working_dir: /app/src
+    command: python manage.py runserver --settings=core.settings.development ${APP_IP}:${APP_PORT}
+    volumes:
+      - .:/app
+    ports:
+      - ${APP_PORT}:${APP_PORT}
+    env_file:
+      - ./.env
+    depends_on:
+      - db
+    networks:
+      - lib-network
+networks:
+    lib-network:
+        driver: bridge
+volumes:
+  data:
