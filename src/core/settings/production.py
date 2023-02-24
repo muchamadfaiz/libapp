@@ -2,7 +2,7 @@ import os
 
 from .base import *
 
-
+ALLOWED_HOSTS = ['167.172.70.208', "localhost"]
 
 DATABASES = {
     "default": {
