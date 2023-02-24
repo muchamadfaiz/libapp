@@ -2,6 +2,9 @@ build-prod:
 	docker-compose -f docker-compose-prod.yml build --no-cache
 
 upd:
+	docker-compose -f docker-compose-prod.yml up -d
+
+up:
 	docker-compose -f docker-compose-prod.yml up
 
 shell-prod:
