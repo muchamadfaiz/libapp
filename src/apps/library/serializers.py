@@ -5,7 +5,9 @@ from .models import Book, Author, Category
 class BookSerializer(serializers.ModelSerializer):
     class Meta:
         model = Book
-        fields = ['id', 'title', 'description', 'author', 'price', 'price_with_tax']
+        fields = [
+            'id', 'title', 'description', 'author', 'price', 'price_with_tax', 'category'
+        ]
 
     price_with_tax = serializers.SerializerMethodField(method_name='calculate_tax')
 
