@@ -17,4 +17,4 @@ migrate:
 	docker compose -f docker-compose-prod.yaml exec web su -c "python manage.py migrate --settings=core.settings.production"
 
 destroy:
-	docker compose -f -f docker-compose-prod.yaml down
+	docker compose -f docker-compose-prod.yaml down
