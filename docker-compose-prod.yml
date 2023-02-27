@@ -41,7 +41,7 @@ services:
     depends_on:
       - web
     networks:
-      - ecomerce-network
+      - lib-network
 networks:
     lib-network:
         driver: bridge
