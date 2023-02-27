@@ -31,6 +31,17 @@ services:
       - db
     networks:
       - lib-network
+  nginx:
+    build: ./nginx
+    container_name: ecomerce-nginx
+    env_file:
+      - ./.env
+    ports:
+      - 1339:80
+    depends_on:
+      - web
+    networks:
+      - ecomerce-network
 networks:
     lib-network:
         driver: bridge
