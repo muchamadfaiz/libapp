@@ -33,11 +33,11 @@ services:
       - lib-network
   nginx:
     build: ./nginx
-    container_name: ecomerce-nginx
+    container_name: lib-nginx
     env_file:
       - ./.env
     ports:
-      - 1339:80
+      - ${NGINX_PORT}:${HTTP_PORT}
     depends_on:
       - web
     networks:
