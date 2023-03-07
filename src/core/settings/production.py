@@ -2,7 +2,7 @@ import os
 
 from .base import *
 
-ALLOWED_HOSTS = ['167.172.70.208', "localhost", "flitzcode.com", "www.flitzcode.com"]
+ALLOWED_HOSTS = ['167.172.70.208', "localhost", "flitzcode.com", "www.flitzcode.com", "159.223.40.126"]
 
 DATABASES = {
     "default": {
