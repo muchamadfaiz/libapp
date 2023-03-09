@@ -11,21 +11,17 @@ from .base import *
 
 load_dotenv(os.path.join(BASE_DIR,".env"))
 
-SECRET_KEY = os.getenv("SECRET_KEY")
+SECRET_KEY = 'django-insecure-l6)_i#d(^(r!7ah0d!e-^cpjr3js8+hr0f_eiro#l4)n9q*)4v'
 
-DEBUG = os.getenv("DEBUG")
+DEBUG = True
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": os.getenv("DB_NAME"),
-        "USER": os.getenv("DB_USER"),
-        "PASSWORD": os.getenv("DB_PWD"),
-        "HOST": os.getenv("DB_HOST"),
-        "PORT": os.getenv("DB_PORT"),
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
-
 }
+
 INSTALLED_APPS += [
     
 ]

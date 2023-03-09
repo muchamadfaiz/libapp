@@ -15,11 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from rest_framework.authtoken import views
+
 
 admin.site.site_header = 'Library Admin'
 admin.site.index_title = 'Admin'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('library/', include('apps.library.urls'))
+    path('library/', include('apps.library.urls')),
+    path("users/", include("apps.users.urls"))
 ]
