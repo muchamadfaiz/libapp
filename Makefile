@@ -18,3 +18,6 @@ migrate:
 
 destroy:
 	docker compose -f docker-compose-prod.yml down
+
+createsuperuser:
+	docker compose -f docker-compose-prod.yml exec web su -c "python manage.py createsuperuser --settings=core.settings.production"

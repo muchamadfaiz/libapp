@@ -40,9 +40,11 @@ INSTALLED_APPS = [
 
     #third-party
     'rest_framework',
+    'rest_framework_simplejwt',
 
     #installed apps
     'apps.library',
+    'apps.coreuser'
     
 ]
 
@@ -131,3 +133,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # REST FRAMEWORK
 REST_FRAMEWORK = {}
+
+AUTH_USER_MODEL = 'coreuser.User'
