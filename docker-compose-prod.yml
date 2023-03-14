@@ -5,7 +5,7 @@ services:
     container_name: "lib-db"
     image: postgres:15
     env_file:
-      - ./.env
+      - .env
     ports:
       - ${DB_PORT}:${DB_PORT}
     volumes:
@@ -26,7 +26,7 @@ services:
     ports:
       - ${APP_PORT}:${APP_PORT}
     env_file:
-      - ./.env
+      - .env
     depends_on:
       - db
     networks:
@@ -35,7 +35,7 @@ services:
     build: ./nginx
     container_name: lib-nginx
     env_file:
-      - ./.env
+      - .env
     ports:
       - ${NGINX_PORT}:${HTTP_PORT}
     depends_on:
